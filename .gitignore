@@ -1,0 +1,5 @@
+.venv
+.vscode
+output
+.env
+credentials.json
