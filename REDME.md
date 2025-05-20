@@ -251,7 +251,7 @@ python build_windows.py
 Для Linux AppImage:
 
 ```bash
-# Сначала создаем исполняемый файл
+# начало создаем исполняемый файл
 pyinstaller --onefile --name=генератор_ведомостей main.py
 ```
 
