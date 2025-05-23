@@ -1,17 +1,20 @@
 # en
 
+## 1.0.0
+
 Based on your code, I see you're trying to create a Python application that generates equipment reports from Google Sheets data, and you want to make it work on both Windows (.exe) and Linux (AppImage). Let me help you with that.
 
 Solution for Cross-Platform Packaging
 Here's how you can package your application for both platforms:
 
-1. First, install the required packaging tools:
+### `1. First, install the required packaging tools:`
 
 ```bash
 pip install pyinstaller appimage-builder
 ```
 
-2. Create a Windows executable (.exe):
+### `2. Create a Windows executable (.exe):`
+
 Create a build_windows.py script:
 
 ```python
@@ -28,7 +31,8 @@ PyInstaller.__main__.run([
 ])
 ```
 
-3. Create a Linux AppImage:
+### `3. Create a Linux AppImage:`
+
 Create a AppDir structure:
 
 ```bash
@@ -74,7 +78,8 @@ AppDir:
         key_url: <http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b4fe6acc0b21f32>
 ```
 
-4. Modify your main.py to handle paths correctly:
+### `4. Modify your main.py to handle paths correctly:`
+
 Add this at the beginning of your code:
 
 ```python
@@ -105,7 +110,8 @@ python
 self.credentials_file = resource_path(os.getenv("CREDENTIALS_JSON", "credentials.json"))
 ```
 
-5. Build commands:
+### `5. Build commands:`
+
 For Windows:
 
 ```bash
@@ -138,18 +144,19 @@ The code you provided is already mostly cross-platform compatible, but you'll ne
 
 Would you like me to explain any specific part of this process in more detail?
 
-## rus
+## rus 1.0.0
 
 Сборка приложения для Windows (.exe) и Linux (AppImage)
 Ваш код представляет собой Python-приложение для генерации отчетов из Google Sheets. Вот как его можно упаковать для обеих платформ.
 
-1. Установка необходимых инструментов
+### `1. Установка необходимых инструментов`
 
 ```bash
 pip install pyinstaller appimage-builder
 ```
 
-2. Создание exe-файла для Windows
+### `2. Создание exe-файла для Windows`
+
 Создайте файл build_windows.py:
 
 ```python
@@ -166,7 +173,8 @@ PyInstaller.__main__.run([
 ])
 ```
 
-3. Подготовка к сборке AppImage для Linux
+### `3. Подготовка к сборке AppImage для Linux`
+
 Создайте структуру каталогов:
 
 ```bash
@@ -212,7 +220,8 @@ AppDir:
         key_url: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b4fe6acc0b21f32
 ```
 
-4. Модификация main.py для кроссплатформенности
+### `4. Модификация main.py для кроссплатформенности`
+
 Добавьте в начало кода:
 
 ```python
@@ -240,7 +249,8 @@ def resource_path(relative_path):
 
 python
 self.credentials_file = resource_path(os.getenv("CREDENTIALS_JSON", "credentials.json"))
-5. Команды для сборки
+
+### `5. Команды для сборки`
 
 Для Windows:
 
@@ -255,7 +265,7 @@ python build_windows.py
 pyinstaller --onefile --name=генератор_ведомостей main.py
 ```
 
-# Затем собираем AppImage
+## Затем собираем AppImage
 
 appimage-builder --recipe appimage-builder.yml
 Важные замечания:
